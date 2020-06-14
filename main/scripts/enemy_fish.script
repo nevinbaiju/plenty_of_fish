@@ -1,0 +1,30 @@
+go.property("dir", vmath.vector3())
+function init(self)
+	self.speed = math.random(50, 400)
+	init_position(self)
+end
+
+function init_position(self)
+	if self.dir.x == 1 then
+		pos = vmath.vector3(0, math.random(0, 900), 1)
+		sprite.set_hflip('#enemy_fish', true)
+	else
+		pos = vmath.vector3(1280, math.random(0, 900), 1)
+	end
+	go.set_position(pos)
+end
+
+function update(self, dt)
+	local pos = go.get_position()
+	pos = pos + self.dir * self.speed * dt
+	go.set_position(pos)
+	if pos.x > 1300 and dir == 1 then
+		go.delete()
+	elseif pos.x < -50 and dir == -1 then
+		go.delete()
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	
+end

@@ -1,0 +1,18 @@
+function init(self)
+	self.score = 0
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("add_score") then
+		self.score = self.score + message.score
+		local scorenode = gui.get_node("score")
+		gui.set_text(scorenode, "SCORE: " .. self.score)
+		print("score updated", self.score)
+	elseif message_id == hash("game_over") then
+		local gameovernode = gui.get_node("game_over")
+		gui.set_text(gameovernode, "You died, NOOB.")
+	elseif message_id == hash("victory") then
+		local gameovernode = gui.get_node("game_over")
+		gui.set_text(gameovernode, "You won, but yo mama still bigger than the fish.")
+	end
+end
