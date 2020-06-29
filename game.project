@@ -1,0 +1,19 @@
+[bootstrap]
+main_collection = /main/main.collectionc
+
+[script]
+shared_state = 1
+
+[display]
+width = 1280
+height = 904
+
+[android]
+input_method = HiddenInputField
+
+[project]
+title = Plenty of Fish
+
+[physics]
+allow_dynamic_transforms = 1
+
